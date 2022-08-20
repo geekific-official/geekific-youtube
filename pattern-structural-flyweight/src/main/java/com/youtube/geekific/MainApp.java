@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2021 Geekific (https://www.youtube.com/c/Geekific)
+ * Copyright (c) 2022 Geekific (https://www.youtube.com/c/Geekific)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -30,7 +30,7 @@ import java.util.Random;
 public class MainApp {
 
     /*
-     * Video Reference:
+     * Video Reference: https://youtu.be/qscOsQV-K14
      */
     private static final int BOOK_TYPES = 2;
     private static final int BOOKS_TO_INSERT = 10_000_000;

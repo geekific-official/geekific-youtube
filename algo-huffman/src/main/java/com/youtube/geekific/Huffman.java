@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2021 Geekific (https://www.youtube.com/c/Geekific)
+ * Copyright (c) 2022 Geekific (https://www.youtube.com/c/Geekific)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -45,8 +45,7 @@ public class Huffman {
     private void fillCharFrequenciesMap() {
         charFrequencies = new HashMap<>();
         for (char character : text.toCharArray()) {
-            Integer integer = charFrequencies.get(character);
-            charFrequencies.put(character, integer != null ? integer + 1 : 1);
+            charFrequencies.put(character, charFrequencies.getOrDefault(character, 0) + 1);
         }
     }
 
@@ -64,8 +63,8 @@ public class Huffman {
     }
 
     private void generateHuffmanCodes(Node node, String code) {
-        if (node instanceof Leaf) {
-            huffmanCodes.put(((Leaf) node).getCharacter(), code);
+        if (node instanceof Leaf leaf) {
+            huffmanCodes.put(leaf.getCharacter(), code);
             return;
         }
         generateHuffmanCodes(node.getLeftNode(), code.concat("0"));
@@ -86,8 +85,8 @@ public class Huffman {
         Node current = root;
         for (char character : encodedText.toCharArray()) {
             current = character == '0' ? current.getLeftNode() : current.getRightNode();
-            if (current instanceof Leaf) {
-                sb.append(((Leaf) current).getCharacter());
+            if (current instanceof Leaf leaf) {
+                sb.append(leaf.getCharacter());
                 current = root;
             }
         }

@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2021 Geekific (https://www.youtube.com/c/Geekific)
+ * Copyright (c) 2022 Geekific (https://www.youtube.com/c/Geekific)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -46,7 +46,7 @@ public class MainApp {
 
         copyList.forEach(System.out::println);
 
-        System.out.println("=======================================");
+        System.out.println("==========================================");
 
         VehicleCache registry = new VehicleCache();
         registry.put(vehicles);

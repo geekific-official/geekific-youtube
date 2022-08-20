@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2021 Geekific (https://www.youtube.com/c/Geekific)
+ * Copyright (c) 2022 Geekific (https://www.youtube.com/c/Geekific)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -40,7 +40,7 @@ public class MainApp {
 
         maximumHeap.sort();
 
-        System.out.println("==========================================================");
+        System.out.println("==========================================");
 
         Heap<Integer> minimumHeap = new MinimumHeap<>();
         minimumHeap.insert(50).insert(40).insert(60).insert(30).insert(70).insert(20).insert(100);

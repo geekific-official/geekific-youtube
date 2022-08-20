@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- * Copyright (c) 2021 Geekific (https://www.youtube.com/c/Geekific)
+ * Copyright (c) 2022 Geekific (https://www.youtube.com/c/Geekific)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -115,10 +115,10 @@ public class Trie implements Tree {
         list.get(list.size() - 1).setEndOfWord(false);
         for (int i = list.size() - 1; i > 0; i--) {
             Node current = list.get(i);
-            if (current.getChildren().isEmpty()) {
-                list.get(i - 1).getChildren().remove(current.getCharacter());
-            } else if (current.isEndOfWord()) {
+            if (current.isEndOfWord()) {
                 break;
+            } else if (current.getChildren().isEmpty()) {
+                list.get(i - 1).getChildren().remove(current.getCharacter());
             }
         }
     }
