@@ -24,12 +24,11 @@
 
 package com.youtube.geekific;
 
-import com.youtube.geekific.factories.AsusManufacturer;
-import com.youtube.geekific.factories.Company;
-import com.youtube.geekific.factories.MsiManufacturer;
-import com.youtube.geekific.products.Product;
-
-import java.util.List;
+import com.youtube.geekific.factories.ClassicRestaurant;
+import com.youtube.geekific.factories.OrientalRestaurant;
+import com.youtube.geekific.factories.Restaurant;
+import com.youtube.geekific.products.Burger;
+import com.youtube.geekific.products.Pizza;
 
 public class MainApp {
 
@@ -38,11 +37,13 @@ public class MainApp {
      */
     public static void main(String[] args) {
 
-        Company msi = new MsiManufacturer();
-        Company asus = new AsusManufacturer();
+        Restaurant orientalRestaurant = new OrientalRestaurant();
+        Restaurant classicRestaurant = new ClassicRestaurant();
 
-        List.of(msi.createGpu(), msi.createMonitor(), asus.createGpu(), asus.createMonitor())
-                .forEach(Product::assemble);
+        Pizza classicPizza = classicRestaurant.createPizza();
+        Burger classicBurger = classicRestaurant.createBurger();
+        Pizza orientalPizza = orientalRestaurant.createPizza();
+        Burger orientalBurger = orientalRestaurant.createBurger();
 
     }
 

@@ -24,6 +24,10 @@
 
 package com.youtube.geekific;
 
+import com.youtube.geekific.factories.ClassicRestaurant;
+import com.youtube.geekific.factories.OrientalRestaurant;
+import com.youtube.geekific.factories.Restaurant;
+
 public class MainApp {
 
     /*
@@ -31,13 +35,13 @@ public class MainApp {
      */
     public static void main(String[] args) {
 
-        Restaurant beefResto = new BeefBurgerRestaurant();
-        beefResto.orderBurger();
+        Restaurant orientalRestaurant = new OrientalRestaurant();
+        orientalRestaurant.orderBurger();
 
         System.out.println("==========================================");
 
-        Restaurant veggieResto = new VeggieBurgerRestaurant();
-        veggieResto.orderBurger();
+        Restaurant classicRestaurant = new ClassicRestaurant();
+        classicRestaurant.orderBurger();
 
     }
 
