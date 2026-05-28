@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Map;
 
 /*
- * Video Reference,
+ * Video Reference: https://youtu.be/TDJEFGanG4Q
  * LeetCode Reference: https://leetcode.com/problems/majority-element-ii/
  */
 public class _0229_MajorityElementII {

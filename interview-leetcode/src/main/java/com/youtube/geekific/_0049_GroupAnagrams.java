@@ -24,47 +24,38 @@
 
 package com.youtube.geekific;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /*
- * Video Reference: https://youtu.be/TDJEFGanG4Q
- * LeetCode Reference: https://leetcode.com/problems/majority-element/
+ * Video Reference: https://youtu.be/AfneE0aVOiM
+ * LeetCode Reference: https://leetcode.com/problems/group-anagrams/
  */
-public class _0169_MajorityElement {
+public class _0049_GroupAnagrams {
 
-    public int majorityElement_Sorting(int[] nums) {
-        Arrays.sort(nums);
-        return nums[nums.length / 2];
-    }
-
-    public int majorityElement_Maps(int[] nums) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int num : nums) {
-            map.put(num, map.getOrDefault(num, 0) + 1);
-            if (map.get(num) > nums.length / 2) {
-                return num;
-            }
+    public List<List<String>> groupAnagrams_Streams(String[] strs) {
+        Map<String, List<String>> map = new HashMap<>();
+        for (String str : strs) {
+            char[] chars = str.toCharArray();
+            Arrays.sort(chars);
+            String s = new String(chars);
+            map.computeIfAbsent(s, k -> new LinkedList<>()).add(str);
         }
 
-        return map.entrySet().stream()
-                .filter(e -> e.getValue() > nums.length / 2)
-                .map(Map.Entry::getKey)
-                .findFirst()
-                .orElse(0);
+        return map.values().stream().toList();
     }
 
-    public int majorityElement_BoyerMoore(int[] nums) {
-        int count = 0;
-        int candidate = 0;
-        for (int num : nums) {
-            if (count == 0) {
-                candidate = num;
-            }
-            count += (num == candidate) ? 1 : -1;
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> map = new HashMap<>();
+        for (String str : strs) {
+            char[] chars = str.toCharArray();
+            Arrays.sort(chars);
+            String s = new String(chars);
+            List<String> anagrams = map.getOrDefault(s, new LinkedList<>());
+            anagrams.add(str);
+            map.put(s, anagrams);
         }
-        return candidate;
+
+        return new ArrayList<>(map.values());
     }
 
 }

@@ -27,7 +27,7 @@ package com.youtube.geekific;
 import java.util.Arrays;
 
 /*
- * Video Reference,
+ * Video Reference: https://youtu.be/BYhJYhHCKPM
  * LeetCode Reference: https://leetcode.com/problems/merge-sorted-array/
  */
 public class _0088_MergeSortedArray {

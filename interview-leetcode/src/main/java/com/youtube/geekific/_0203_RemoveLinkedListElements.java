@@ -24,47 +24,41 @@
 
 package com.youtube.geekific;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
 /*
- * Video Reference: https://youtu.be/TDJEFGanG4Q
- * LeetCode Reference: https://leetcode.com/problems/majority-element/
+ * Video Reference: https://youtu.be/Dj8LDVxuJnI
+ * LeetCode Reference: https://leetcode.com/problems/remove-linked-list-elements/
  */
-public class _0169_MajorityElement {
+public class _0203_RemoveLinkedListElements {
 
-    public int majorityElement_Sorting(int[] nums) {
-        Arrays.sort(nums);
-        return nums[nums.length / 2];
+    public ListNode removeElements_Recursive(ListNode head, int val) {
+        if (head == null) return null;
+        head.next = removeElements_Recursive(head.next, val);
+        return head.val == val ? head.next : head;
     }
 
-    public int majorityElement_Maps(int[] nums) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int num : nums) {
-            map.put(num, map.getOrDefault(num, 0) + 1);
-            if (map.get(num) > nums.length / 2) {
-                return num;
+    public ListNode removeElements(ListNode head, int val) {
+        ListNode sentinel = new ListNode(0, head);
+        ListNode prev = sentinel;
+        ListNode curr = head;
+        while (curr != null) {
+            while (curr != null && curr.val == val) {
+                prev.next = curr.next;
+                curr = curr.next;
             }
+            prev = prev.next;
+            if (curr != null) curr = curr.next;
         }
-
-        return map.entrySet().stream()
-                .filter(e -> e.getValue() > nums.length / 2)
-                .map(Map.Entry::getKey)
-                .findFirst()
-                .orElse(0);
+        return sentinel.next;
     }
 
-    public int majorityElement_BoyerMoore(int[] nums) {
-        int count = 0;
-        int candidate = 0;
-        for (int num : nums) {
-            if (count == 0) {
-                candidate = num;
-            }
-            count += (num == candidate) ? 1 : -1;
+    public static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
         }
-        return candidate;
     }
 
 }
